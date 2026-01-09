@@ -1,0 +1,64 @@
+// ===========================================
+// CalenFit Backend - Prisma Schema
+// ===========================================
+// Database models for Authentication & Authorization
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+// ===========================================
+// User Role Enum
+// ===========================================
+enum Role {
+  USER    // Normal kullanıcı (öğrenci)
+  COACH   // Personal Trainer
+  ADMIN   // Sistem yöneticisi
+}
+
+// ===========================================
+// User Model
+// ===========================================
+model User {
+  id            String    @id @default(uuid())
+  email         String    @unique
+  password      String    // bcrypt hashed
+  fullName      String
+  role          Role      @default(USER)
+  isActive      Boolean   @default(true)
+  emailVerified Boolean   @default(false)
+  
+  // Timestamps
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  
+  // Relations
+  refreshTokens RefreshToken[]
+  
+  @@map("users")
+}
+
+// ===========================================
+// Refresh Token Model
+// ===========================================
+// Stored separately for token rotation & revocation
+model RefreshToken {
+  id          String   @id @default(uuid())
+  token       String   @unique
+  userId      String
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  expiresAt   DateTime
+  createdAt   DateTime @default(now())
+  
+  // Device/Session info (optional, for multi-device support)
+  userAgent   String?
+  ipAddress   String?
+  
+  @@index([userId])
+  @@index([token])
+  @@map("refresh_tokens")
+}
