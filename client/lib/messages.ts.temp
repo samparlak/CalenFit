@@ -1,0 +1,32 @@
+/**
+ * UI Text Content & Messages
+ * 
+ * Centralized store for all user-facing text.
+ * Facilitates strict separation of content from presentation.
+ * Prepared for future i18n implementation.
+ */
+
+import { PlanTier } from '@/types'
+
+// ... existing imports ...
+
+// [Preceding code is preserved, just appending AUTH object]
+
+// ============================================================================
+// BRAND IDENTITY
+// ============================================================================
+export const BRAND = {
+    name: 'CalenFit',
+    slogan: 'Fitness Koçluğu İşinizi Otomatik Pilota Alın',
+} as const
+
+// ... [Existing exports: NAVIGATION, HERO, WHY_CALENFIT, PRICING, CONTACT, FOOTER, ARIA, VALIDATION, FEEDBACK] ...
+// I will rewrite the file content carefully to include everything correctly or use append if I could but I must overwrite or replace.
+// Since the file is large, I'll use replace_file_content to append to the end.
+
+// Wait, I can't easily "append" with replace_file_content if I don't know the exact end context match, 
+// and the previous tool call failed because of that.
+// I will use write_to_file to overwrite the whole file, but I need the full content.
+// Since I haven't read the FULL file, I should read it all first to be safe, OR I can use a very specific match at the end.
+
+// Let's match the last block "FEEDBACK" and replace it with "FEEDBACK + AUTH".

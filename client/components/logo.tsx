@@ -1,0 +1,97 @@
+export function Logo({ className = "" }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 100 100"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+      style={{ shapeRendering: 'geometricPrecision' }}
+    >
+      {/* Main Calendar Container */}
+      <rect x="10" y="10" width="80" height="80" rx="8" fill="#89342A" />
+
+      {/* Calendar Header Bar */}
+      <rect x="10" y="10" width="80" height="12" rx="8" fill="#7a2d24" />
+      <rect x="10" y="18" width="80" height="4" fill="#7a2d24" />
+
+      {/* Header Divider Line */}
+      <line x1="10" y1="22" x2="90" y2="22" stroke="#F3E8DF" strokeWidth="1" />
+
+      {/* 7x5 Grid - All cells with visible borders */}
+
+      <g stroke="#F3E8DF" strokeWidth="1" fill="none" opacity="0.5">
+        {/* Row 1 */}
+        <rect x="12" y="25" width="10" height="11" rx="1.5" />
+        <rect x="23" y="25" width="10" height="11" rx="1.5" />
+        <rect x="34" y="25" width="10" height="11" rx="1.5" />
+        <rect x="45" y="25" width="10" height="11" rx="1.5" />
+        <rect x="56" y="25" width="10" height="11" rx="1.5" />
+        <rect x="67" y="25" width="10" height="11" rx="1.5" />
+        <rect x="78" y="25" width="10" height="11" rx="1.5" />
+
+        {/* Row 2 */}
+        <rect x="12" y="37" width="10" height="11" rx="1.5" />
+        <rect x="23" y="37" width="10" height="11" rx="1.5" />
+        <rect x="34" y="37" width="10" height="11" rx="1.5" />
+        <rect x="45" y="37" width="10" height="11" rx="1.5" />
+        <rect x="56" y="37" width="10" height="11" rx="1.5" />
+        <rect x="67" y="37" width="10" height="11" rx="1.5" />
+        <rect x="78" y="37" width="10" height="11" rx="1.5" />
+
+        {/* Row 3 */}
+        <rect x="12" y="49" width="10" height="11" rx="1.5" />
+        <rect x="23" y="49" width="10" height="11" rx="1.5" />
+        <rect x="34" y="49" width="10" height="11" rx="1.5" />
+        <rect x="45" y="49" width="10" height="11" rx="1.5" />
+        <rect x="56" y="49" width="10" height="11" rx="1.5" />
+        <rect x="67" y="49" width="10" height="11" rx="1.5" />
+        <rect x="78" y="49" width="10" height="11" rx="1.5" />
+
+        {/* Row 4 */}
+        <rect x="12" y="61" width="10" height="11" rx="1.5" />
+        <rect x="23" y="61" width="10" height="11" rx="1.5" />
+        <rect x="34" y="61" width="10" height="11" rx="1.5" />
+        <rect x="45" y="61" width="10" height="11" rx="1.5" />
+        <rect x="56" y="61" width="10" height="11" rx="1.5" />
+        <rect x="67" y="61" width="10" height="11" rx="1.5" />
+        <rect x="78" y="61" width="10" height="11" rx="1.5" />
+
+        {/* Row 5 */}
+        <rect x="12" y="73" width="10" height="11" rx="1.5" />
+        <rect x="23" y="73" width="10" height="11" rx="1.5" />
+        <rect x="34" y="73" width="10" height="11" rx="1.5" />
+        <rect x="45" y="73" width="10" height="11" rx="1.5" />
+        <rect x="56" y="73" width="10" height="11" rx="1.5" />
+        <rect x="67" y="73" width="10" height="11" rx="1.5" />
+        <rect x="78" y="73" width="10" height="11" rx="1.5" />
+      </g>
+
+      {/* DUMBBELL PATTERN - Selected dates
+          □ □ □ □ □ □ □   Row 1
+          □ ■ □ □ □ ■ □   Row 2 (col 2 & 6)
+          ■ ■ ■ ■ ■ ■ ■   Row 3 (all 7 cols - full bar)
+          □ ■ □ □ □ ■ □   Row 4 (col 2 & 6)
+          □ □ □ □ □ □ □   Row 5
+      */}
+
+      <g fill="#F3E8DF">
+        {/* Top of dumbbell weights (Row 2, col 2 & 6) */}
+        <rect x="23" y="37" width="10" height="11" rx="1.5" />
+        <rect x="67" y="37" width="10" height="11" rx="1.5" />
+
+        {/* Middle row - FULL bar (Row 3, all 7 columns) */}
+        <rect x="12" y="49" width="10" height="11" rx="1.5" />
+        <rect x="23" y="49" width="10" height="11" rx="1.5" />
+        <rect x="34" y="49" width="10" height="11" rx="1.5" />
+        <rect x="45" y="49" width="10" height="11" rx="1.5" />
+        <rect x="56" y="49" width="10" height="11" rx="1.5" />
+        <rect x="67" y="49" width="10" height="11" rx="1.5" />
+        <rect x="78" y="49" width="10" height="11" rx="1.5" />
+
+        {/* Bottom of dumbbell weights (Row 4, col 2 & 6) */}
+        <rect x="23" y="61" width="10" height="11" rx="1.5" />
+        <rect x="67" y="61" width="10" height="11" rx="1.5" />
+      </g>
+    </svg>
+  )
+}
